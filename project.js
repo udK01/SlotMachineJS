@@ -46,11 +46,18 @@ const getBet = (balance, numberOfLines) => {
     getBet,
     Number(bet),
     true,
-    (x) => x <= balance / numberOfLines
+    (x) => x <= balance / numberOfLines,
+    numberOfLines
   );
 };
 
-function validateInput(callback, x, args = false, condition = null) {
+function validateInput(
+  callback,
+  x,
+  args = false,
+  condition = null,
+  numberOfLines
+) {
   if (isNaN(x) || x <= 0 || (condition && !condition(x))) {
     console.log(`Invalid Input! Try Again.`);
     return args ? callback(balance, numberOfLines) : callback();
